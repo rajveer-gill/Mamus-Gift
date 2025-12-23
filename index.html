@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sikh History Stories - AI Story Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>ਸਿੱਖ ਇਤਿਹਾਸ ਦੀਆਂ ਕਹਾਣੀਆਂ</h1>
+                <p class="subtitle">Sikh History Stories</p>
+                <p class="description">Discover hidden and lesser-known stories from our rich heritage</p>
+            </div>
+        </header>
+
+        <main>
+            <div class="story-generator">
+                <button id="generateBtn" class="generate-btn">
+                    <span class="btn-text">Generate New Story</span>
+                    <span class="btn-icon">✨</span>
+                </button>
+
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Uncovering a hidden story from our history...</p>
+                </div>
+
+                <div id="storyContainer" class="story-container hidden">
+                    <div class="story-header">
+                        <h2 id="storyTitle"></h2>
+                        <div class="story-meta">
+                            <span id="storyEra"></span>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <p id="storyText"></p>
+                    </div>
+                    <div class="story-actions">
+                        <button id="shareBtn" class="action-btn">Share Story</button>
+                        <button id="newStoryBtn" class="action-btn primary">New Story</button>
+                    </div>
+                </div>
+
+                <div id="errorMessage" class="error-message hidden"></div>
+            </div>
+
+            <div class="info-section">
+                <p class="info-text">Each story is a captivating narrative that uncovers hidden and lesser-known stories
+                    from Sikh history, woven with moral lessons about being a good person - compassion, honesty,
+                    service, and justice.</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Made with ❤️ for preserving our heritage</p>
+        </footer>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
