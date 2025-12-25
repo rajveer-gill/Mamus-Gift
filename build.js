@@ -12,14 +12,24 @@ if (!apiKey || apiKey === 'YOUR_OPENAI_API_KEY_HERE') {
 // Read the original index.html
 const indexHtml = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
 
-// Replace the config.js script tag to inject the API key inline
-const updatedHtml = indexHtml.replace(
-    '<script src="config.js"></script>',
-    `<script>
+// Replace config.js script tag with inline script containing the API key
+const apiKeyScript = `<script>
         // API key injected during build from Vercel environment variable
         const OPENAI_API_KEY = '${apiKey}';
-    </script>`
-);
+    </script>`;
+
+let updatedHtml = indexHtml;
+
+// Replace config.js reference if it exists
+if (indexHtml.includes('<script src="config.js"></script>')) {
+    updatedHtml = indexHtml.replace('<script src="config.js"></script>', apiKeyScript);
+} else {
+    // If there's already an inline script with OPENAI_API_KEY, replace it
+    updatedHtml = indexHtml.replace(
+        /<script>[\s\S]*?const OPENAI_API_KEY = '[^']*';[\s\S]*?<\/script>/,
+        apiKeyScript
+    );
+}
 
 // Write the updated index.html
 fs.writeFileSync(path.join(__dirname, 'index.html'), updatedHtml);
