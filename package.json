@@ -1,0 +1,10 @@
+{
+  "name": "sikh-history-stories",
+  "version": "1.0.0",
+  "description": "AI-powered Sikh history story generator",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "devDependencies": {}
+}
+
