@@ -2,7 +2,12 @@ const fs = require('fs');
 const path = require('path');
 
 // Read the API key from environment variable (set in Vercel)
-const apiKey = process.env.OPENAI_API_KEY || 'YOUR_OPENAI_API_KEY_HERE';
+const apiKey = process.env.OPENAI_API_KEY || process.env.VERCEL_ENV_OPENAI_API_KEY || 'YOUR_OPENAI_API_KEY_HERE';
+
+if (!apiKey || apiKey === 'YOUR_OPENAI_API_KEY_HERE') {
+    console.warn('WARNING: OPENAI_API_KEY environment variable not set!');
+    console.warn('Please set OPENAI_API_KEY in Vercel project settings.');
+}
 
 // Read the original index.html
 const indexHtml = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');

@@ -1,7 +1,6 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "node build.js",
   "outputDirectory": ".",
-  "framework": null,
-  "installCommand": "echo 'No dependencies to install'"
+  "installCommand": "echo 'No install needed'"
 }
 
