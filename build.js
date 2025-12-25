@@ -7,11 +7,11 @@ const apiKey = process.env.OPENAI_API_KEY || 'YOUR_OPENAI_API_KEY_HERE';
 // Read the original index.html
 const indexHtml = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
 
-// Replace the script tag to inject the API key
+// Replace the config.js script tag to inject the API key inline
 const updatedHtml = indexHtml.replace(
     '<script src="config.js"></script>',
     `<script>
-        // API key injected during build
+        // API key injected during build from Vercel environment variable
         const OPENAI_API_KEY = '${apiKey}';
     </script>`
 );
