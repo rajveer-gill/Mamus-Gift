@@ -1,5 +1,6 @@
 # Configuration file with API keys - DO NOT COMMIT
 config.js
+deploy.html
 
 # OS files
 .DS_Store
